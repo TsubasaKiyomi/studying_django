@@ -34,7 +34,7 @@ development_server.md
 
 application_create.md
 
-- アプリケーションを作る
+- アプリケーションを作る [python3 manage.py startapp polls ]
 - プロジェクトとアプリケーションの違い
 
 ###### 5.はじめてのビュー作成
