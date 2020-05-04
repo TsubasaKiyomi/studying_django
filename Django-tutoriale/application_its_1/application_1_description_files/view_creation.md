@@ -62,9 +62,28 @@ urlpatterns = [
 ]
 ```
 
-###### HttpResponse とは？
+###### HttpResponse HttpRequest とは？　
 
-import 　 HttpResponse はページなどに関するサーバーからの返信のこと
+- import HttpResponse はページなどに関するサーバーからの返信のこと
+
+- django は、システムを通じてステータスを渡すために、リクエストとレスポンスのオブジェクトを使う。
+  あるページがリクエストされた時、django はリクエストに関するメタデータを含んだ HttpRequest オブジェクトを生成し HttpRequest をビュー関数の最初の関数に渡し、適切なビューを読み込む。ビューは HttpResponse オブジェクトを返す必要がある。
+
+###### HttpResponse 使い方
+
+文字列を引き渡す
+
+```
+>>> from django.http import HttpResponse
+>>> response = HttpResponse("Here's the text of the Web page.")
+>>> response = HttpResponse("Text only, please.", content_type="text/plain")
+>>> response = HttpResponse(b'Bytestrings are also accepted.')
+>>> response = HttpResponse(memoryview(b'Memoryview as well.'))
+```
+
+###### HttpRequest オブジェクト
+
+例「HttpRequest.scheme」「HttpRequest.bidy」「HttpRequest.read」など
 
 django で最も単純なビューができた。
 view だけでは動かない。URL を対応付けする必要がある。そのために URLconf が必要。
